@@ -1,0 +1,7 @@
+pvp: false
+messages:
+  enable: PVP was enabled
+  disable: PVP was disabled
+  damage: '&c&lYou can not do this: pvp is disabled'
+  permissions: 'You can not do this: you do not have right permission'
+  reload: Plugin was reloaded

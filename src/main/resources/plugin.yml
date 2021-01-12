@@ -1,0 +1,8 @@
+main: com.dpkgsoft.temppvp.TempPVP
+name: TempPVP
+version: 1.0
+api-version: 1.16
+commands:
+  pvp:
+    usage: /pvp [on|off|reload]
+    description: On or off pvp on server
