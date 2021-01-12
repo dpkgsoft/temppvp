@@ -12,11 +12,24 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * @author @mraliscoder
+ */
+
 public class TempPVP extends JavaPlugin implements Listener {
+    /**
+     * If pvp is now enable
+     */
     boolean pvp = false;
 
+    /**
+     * Configuration
+     */
     FileConfiguration config;
 
+    /**
+     * Things that happens on enable
+     */
     @Override
     public void onEnable() {
         saveDefaultConfig();
@@ -25,6 +38,14 @@ public class TempPVP extends JavaPlugin implements Listener {
         pvp = config.getBoolean("pvp", false);
     }
 
+    /**
+     * Things that happens on /pvp
+     * @param sender Bukkit
+     * @param command Bukkit
+     * @param label Bukkit
+     * @param arg Bukkit
+     * @return boolean
+     */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] arg) {
         if (label.equalsIgnoreCase("pvp")) {
@@ -59,6 +80,12 @@ public class TempPVP extends JavaPlugin implements Listener {
         return false;
     }
 
+    /**
+     * Things that happens on PVP
+     * If player is damaging other player and pvp is off, event cancels
+     *
+     * @param e event
+     */
     @EventHandler
     public void onPvp(EntityDamageByEntityEvent e) {
         if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
@@ -69,6 +96,12 @@ public class TempPVP extends JavaPlugin implements Listener {
         }
     }
 
+
+    /**
+     * Colorize messages
+     * @param msg original message with '&'
+     * @return colored message
+     */
     public static String color(String msg) {
         return ChatColor.translateAlternateColorCodes('&', msg);
     }
